@@ -1,0 +1,216 @@
+@font-face {
+  font-family: gabriola;
+  src: url(Fonts/Gabriel.ttf);
+}
+@font-face {
+  font-family: Poppins;
+  src: url(Fonts/Poppins-Regular.ttf);
+}
+body {
+  background: linear-gradient(steelblue, purple) fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  flex-flow: column;
+  font-family: Poppins;
+}
+
+div {
+  margin-block: 10px;
+}
+
+h3 {
+  margin-block: 5px;
+  text-align: center;
+}
+.list {
+  font-family: gabriola;
+  font-size: 2rem;
+}
+
+.task-box {
+  padding: 7px;
+  border-radius: 5px;
+  border-width: 1px;
+  font: inherit;
+  width: 400px;
+}
+
+.task-box:focus-within {
+  border: 1px solid hsl(240, 100%, 50%);
+  outline: hsl(240, 100%, 50%);
+}
+
+.task-form,
+.task-form form {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 5px;
+  justify-content: center;
+}
+
+.button {
+  background-color: hsl(240, 100%, 50%);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.5s;
+  font-family: inherit;
+}
+
+.button:hover {
+  background-color: hsl(240, 100%, 60%);
+  color: #fff;
+}
+
+.button:active {
+  background: hsl(240, 100%, 80%);
+
+  transition: 0.1s;
+}
+
+.button-div {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px blue;
+  width: 70%;
+}
+
+.all-button {
+  width: 60px;
+}
+
+.task-container {
+  background: rgb(193, 179, 255);
+  padding: 3px 20px;
+  position: relative;
+  border-radius: 10px;
+  width: 90%;
+  min-height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px auto;
+}
+
+.task-form2 {
+  display: flex;
+  gap: 0.5em;
+}
+
+input[type="date"] {
+  padding: 10px;
+  /* position: relative; */
+  font-family: inherit;
+  width: 35%;
+}
+
+input[type="date"]:hover::before {
+  display: block;
+}
+
+input[type="date"]::before {
+  content: "Select Date of Completion";
+  position: absolute;
+  display: none;
+  color: #fff;
+  top: -2px;
+  padding: 3px;
+  left: 50%;
+  background: #000;
+}
+
+.task-form2 {
+  display: inline-flex;
+  align-items: center;
+}
+
+#tasks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.task-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+}
+
+.task-buttons {
+  padding: 15px;
+  font-family: inherit;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.delete-btn {
+  background: rgba(255, 117, 117, 0.494);
+  transition: 0.3s;
+}
+.edit-btn {
+  background: rgba(137, 255, 143, 0.494);
+  transition: 0.3s;
+}
+.delete-btn:hover {
+  background: rgba(255, 117, 117, 0.694);
+}
+.edit-btn:hover {
+  background: rgba(137, 255, 143, 0.694);
+}
+
+label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.selected {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid hsl(240, 100%, 50%);
+}
+
+.input-editor {
+  width: 100%;
+  padding: 7px;
+  font-family: inherit;
+  outline: red;
+  border: red;
+}
+
+input[type="checkbox"] {
+  padding: 10px;
+  box-sizing: content-box;
+  height: 25px;
+  width: 25px;
+  /* outline: 0.5px solid #000; */
+}
+
+.errorText {
+  color: red;
+  font-size: clamp(1rem, 2vh, 1.5rem);
+  font-style: italic;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do list</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container" id="test">
+      <h3 class="list">TO-DO LIST</h3>
+      <div class="task-form">
+        <form class="task-form-inner">
+          <input
+            class="task-box"
+            id="task-box"
+            type="text"
+            placeholder="Enter a new task"
+          />
+          <button type="submit" class="button">Add task</button>
+          <br /><br />
+        </form>
+      </div>
+      <div class="button-div">
+        <button
+          class="button category-buttons selected all-button"
+          onclick="displayAllTasks(); addSelectedClass(this)"
+        >
+          All
+        </button>
+        <button
+          class="button category-buttons completed-button"
+          onclick="displayCompletedTasks(); addSelectedClass(this)"
+        >
+          Completed
+        </button>
+        <button
+          class="button category-buttons pending-button"
+          onclick="displayPendingTasks(); addSelectedClass(this)"
+        >
+          Pending
+        </button>
+      </div>
+      <div id="tasks"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
