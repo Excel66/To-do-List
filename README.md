@@ -13,6 +13,6 @@
  Note: Deleted Tasks cannot be recovered so make sure that the correct task is being deleted and also make sure that the task will no longer be needed.
 ## Editing Tasks
  Tasks which have been created can be edited by clicking the edit button in the task container whenever there is an error or the wrong task was entered. By clicking the edit task button, and input box will be created replacing the current label and the current name will be the writing in the input box created for easy editing of the current task name and the edit button will be changed to a save button. By clicking the Save Button, the text entered in the input box provided will be given to task as the name, the input text will now disappeared and the name of the task will be changed to text entered in the input box.
-# Note: 
+### Note: 
 A date input has also been provided to select the date of completion of the task although it doesn't add any special functions, it just serves the purpose of reminding the user the date in which the task is to be completed. Although selecting a completion date is not compulsory, it is recommended depending on the type of task.
 I hope you enjoy this todo list be sure to have fun with it 😁
