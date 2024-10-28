@@ -18,6 +18,7 @@ body {
   overflow-x: hidden;
   flex-flow: column;
   font-family: Poppins;
+  font-size: clamp(1rem, 3vw, 2.5rem);
 }
 
 div {
@@ -25,7 +26,7 @@ div {
 }
 
 h3 {
-  margin-block: 5px;
+  margin-bottom: 5px;
   text-align: center;
 }
 .list {
@@ -38,6 +39,7 @@ h3 {
   border-radius: 5px;
   border-width: 1px;
   font: inherit;
+  font-size: clamp(0.6rem, 3vw, 1.3rem);
   width: 30%;
 }
 
@@ -49,11 +51,16 @@ h3 {
 .task-form,
 .task-form form {
   display: flex;
-  width: 100%;
   align-items: center;
   gap: 0.5em;
-  margin-bottom: 5px;
   justify-content: center;
+  height: 10vh;
+  width: 100%;
+}
+
+.task-form {
+  margin-block: 0 5px;
+  flex-flow: row wrap;
 }
 
 .button {
@@ -66,14 +73,14 @@ h3 {
   font-family: inherit;
 }
 
-.button:hover {
+.button:active {
   background-color: hsl(240, 100%, 60%);
-  color: #fff;
 }
 
 .button:active {
   background: hsl(240, 100%, 80%);
 
+  color: #fff;
   transition: 0.1s;
 }
 
@@ -81,6 +88,8 @@ h3 {
   justify-content: center;
   display: flex;
   align-items: center;
+  flex-flow: row wrap;
+  width: 100%;
   gap: 0.5em;
 }
 
@@ -106,6 +115,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-flow: row wrap;
   margin: 5px auto;
 }
 
@@ -151,6 +161,8 @@ input[type="date"]::before {
 .task-buttons {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  flex-flow: column wrap;
   gap: 0.5em;
 }
 
@@ -214,4 +226,110 @@ input[type="checkbox"] {
   color: red;
   font-size: clamp(1rem, 2vh, 1.5rem);
   font-style: italic;
+}
+
+@media (width: 540px) and (height: 720px) {
+  .task-form2 {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+  }
+  .task-buttons-div {
+    padding: 0;
+    width: 100%;
+    font-family: inherit;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    border-radius: 10px;
+    flex-flow: row wrap;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 500px) {
+  .task-form,
+  .task-form form {
+    flex-direction: column;
+    margin-block: 0 10px;
+    height: auto;
+  }
+  .task-box {
+    width: 60%;
+  }
+  br {
+    display: none;
+  }
+  h3 {
+    margin-block: 1px;
+  }
+  .task-container {
+    background: rgb(193, 179, 255);
+    padding: 1% 0;
+    position: relative;
+    border-radius: 10px;
+    width: 50%;
+    min-height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    margin-block: 2%;
+  }
+
+  input[type="date"] {
+    padding: 2%;
+    /* position: relative; */
+    font-family: inherit;
+    width: 35%;
+  }
+
+  input[type="date"]:hover::before {
+    display: block;
+  }
+
+  input[type="date"]::before {
+    content: "Select Date of Completion";
+    position: absolute;
+    display: none;
+    color: #fff;
+    top: -2px;
+    padding: 1%;
+    left: 50%;
+    background: #000;
+  }
+
+  .task-form2 {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    align-items: center;
+  }
+
+  #tasks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column wrap;
+  }
+
+  .task-buttons-div {
+    padding: 0;
+    width: 100%;
+    font-family: inherit;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    border-radius: 10px;
+    flex-flow: column wrap;
+  }
+}
+
+.task-label {
+  font-size: clamp(1rem, 2vw, 1.5rem);
 }

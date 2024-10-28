@@ -25,7 +25,7 @@ document.querySelector(".task-form-inner").addEventListener("submit", (e) => {
               >${taskInput}</label
             >
           </div>
-          <div class="task-buttons">
+          <div class="task-buttons-div">
             <input
               type="date"
               id="datetimeSelection"
