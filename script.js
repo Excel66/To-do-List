@@ -16,7 +16,9 @@ document.querySelector(".task-form-inner").addEventListener("submit", (e) => {
     errorText.textContent = "Please enter a task in the text box provided";
     tasks.prepend(errorText);
   } else {
-    document.querySelector(".errorText").remove();
+    if (document.querySelector(".errorText")) {
+      document.querySelector(".errorText").remove();
+    }
     let task = `<div class="task-container pending">
           <div class="task-form2">
             <input type="checkbox" class="task" id="task${count}" /><label class="task-label" for="task${count}"
