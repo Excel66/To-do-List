@@ -38,7 +38,7 @@ h3 {
   border-radius: 5px;
   border-width: 1px;
   font: inherit;
-  width: 400px;
+  width: 30%;
 }
 
 .task-box:focus-within {
@@ -49,6 +49,7 @@ h3 {
 .task-form,
 .task-form form {
   display: flex;
+  width: 100%;
   align-items: center;
   gap: 0.5em;
   margin-bottom: 5px;
