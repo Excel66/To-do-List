@@ -328,6 +328,10 @@ input[type="checkbox"] {
     border-radius: 10px;
     flex-flow: column wrap;
   }
+
+  .hidden {
+    display: none;
+  }
 }
 
 .task-label {
