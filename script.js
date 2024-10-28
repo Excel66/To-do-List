@@ -11,10 +11,17 @@ let count = 0;
 document.querySelector(".task-form-inner").addEventListener("submit", (e) => {
   e.preventDefault();
   if (taskbox.value == undefined || taskbox.value == "") {
-    const errorText = document.createElement("p");
-    errorText.classList.add("errorText");
-    errorText.textContent = "Please enter a task in the text box provided";
-    tasks.prepend(errorText);
+    if (document.querySelector(".errorText")) {
+      document.querySelector(".errorText").classList.add("highlight");
+      setTimeout(() => {
+        document.querySelector(".errorText").classList.remove("highlight");
+      }, 500);
+    } else {
+      const errorText = document.createElement("p");
+      errorText.classList.add("errorText");
+      errorText.textContent = "Please enter a task in the text box provided";
+      tasks.prepend(errorText);
+    }
   } else {
     if (document.querySelector(".errorText")) {
       document.querySelector(".errorText").remove();

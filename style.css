@@ -337,3 +337,7 @@ input[type="checkbox"] {
 .task-label {
   font-size: clamp(1rem, 2vw, 1.5rem);
 }
+
+.highlight {
+  background: rgba(0, 0, 255, 0.26);
+}
