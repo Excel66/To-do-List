@@ -39,7 +39,7 @@ h3 {
   border-radius: 5px;
   border-width: 1px;
   font: inherit;
-  font-size: clamp(0.6rem, 3vw, 1.3rem);
+  font-size: clamp(0.6rem, 3vw + 0.2rem, 1rem);
   width: 30%;
 }
 
@@ -119,11 +119,6 @@ h3 {
   margin: 5px auto;
 }
 
-.task-form2 {
-  display: flex;
-  gap: 0.5em;
-}
-
 input[type="date"] {
   padding: 10px;
   /* position: relative; */
@@ -149,6 +144,8 @@ input[type="date"]::before {
 .task-form2 {
   display: inline-flex;
   align-items: center;
+
+  gap: 0.1em;
 }
 
 #tasks {
@@ -226,6 +223,18 @@ input[type="checkbox"] {
   color: red;
   font-size: clamp(1rem, 2vh, 1.5rem);
   font-style: italic;
+}
+.task-buttons-div {
+  padding: 0;
+  width: 85%;
+  font-family: inherit;
+  border: none;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5em;
+  border-radius: 10px;
+  flex-flow: row wrap;
 }
 
 @media (width: 540px) and (height: 720px) {
@@ -335,7 +344,8 @@ input[type="checkbox"] {
 }
 
 .task-label {
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(0.8rem, 2vw + 0.2rem, 1.5rem);
+  font-weight: lighter;
 }
 
 .highlight {

@@ -10,52 +10,68 @@ const tasks = document.getElementById("tasks");
 let count = 0;
 document.querySelector(".task-form-inner").addEventListener("submit", (e) => {
   e.preventDefault();
-  if (taskbox.value == undefined || taskbox.value == "") {
-    if (document.querySelector(".errorText")) {
-      document.querySelector(".errorText").classList.add("highlight");
-      setTimeout(() => {
-        document.querySelector(".errorText").classList.remove("highlight");
-      }, 500);
-    } else {
-      const errorText = document.createElement("p");
-      errorText.classList.add("errorText");
-      errorText.textContent = "Please enter a task in the text box provided";
-      tasks.prepend(errorText);
-    }
+  if (
+    (taskbox.value == undefined && document.querySelector(".errorText")) ||
+    (taskbox.value == "" && document.querySelector(".errorText"))
+  ) {
+    document.querySelector(".errorText").classList.add("highlight");
+    setTimeout(() => {
+      document.querySelector(".errorText").classList.remove("highlight");
+    }, 500);
+  } else if (taskbox.value == undefined || taskbox.value == "") {
+    const errorText = document.createElement("p");
+    errorText.classList.add("errorText");
+    errorText.textContent = "Please enter a task in the text box provided";
+    tasks.prepend(errorText);
   } else {
     if (document.querySelector(".errorText")) {
       document.querySelector(".errorText").remove();
     }
-    let task = `<div class="task-container pending">
-          <div class="task-form2">
-            <input type="checkbox" class="task" id="task${count}" /><label class="task-label" for="task${count}"
-              >${taskInput}</label
-            >
-          </div>
-          <div class="task-buttons-div">
-            <input
-              type="date"
-              id="datetimeSelection"
-              placeholder="Select Date of Completion"
-            />
-            <button class="task-buttons delete-btn" onclick="deleteTask(this)">Delete Task</button>
-            <button class="task-buttons edit-btn" onclick="editTask(this)">Edit Task</button>
-          </div>
-        </div>`;
+    let taskContainer = document.createElement("div");
+    taskContainer.classList.add("task-container", "pending");
+    let taskForm2 = document.createElement("div");
+    taskForm2.classList.add("task-form2");
+    let inputCheckbox = document.createElement("input");
+    inputCheckbox.type = "checkbox";
+    inputCheckbox.classList.add("task");
+    inputCheckbox.id = `task${count}`;
+    let taskLabel = document.createElement("label");
+    taskLabel.htmlFor = `task${count}`;
+    taskLabel.classList.add("task-label");
+    taskLabel.textContent = taskInput;
+    taskForm2.append(inputCheckbox, taskLabel);
+
+    let taskButtonsDiv = document.createElement("div");
+    taskButtonsDiv.classList.add("task-buttons-div");
+    let datetimeSelection = document.createElement("input");
+    datetimeSelection.type = "date";
+    datetimeSelection.id = "datetimeSelection";
+    datetimeSelection.placeholder = "Select Date of Completion";
+    let deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("task-buttons", "delete-btn");
+    deleteBtn.setAttribute("onclick", "deleteTask(this)");
+    deleteBtn.textContent = "Delete Task";
+    let editBtn = document.createElement("button");
+    editBtn.classList.add("task-buttons", "edit-btn");
+    editBtn.setAttribute("onclick", "editTask(this)");
+    editBtn.textContent = "Edit Task";
+    console.log(editBtn);
+    taskButtonsDiv.append(datetimeSelection, deleteBtn, editBtn);
+
+    taskContainer.append(taskForm2, taskButtonsDiv);
+    let task = taskContainer;
     count++;
-    tasks.innerHTML += task;
-    document.querySelectorAll(".task").forEach((checkbox) => {
+    tasks.append(task);
+    document.querySelectorAll(".task-container").forEach((singleTask) => {
+      const checkbox = singleTask.querySelector(".task");
       checkbox.addEventListener("change", () => {
-        document.querySelectorAll(".task-container").forEach((singleTask) => {
-          const checkbox = singleTask.querySelector(".task");
-          if (checkbox && checkbox.checked) {
-            singleTask.classList.add("completed");
-            singleTask.classList.remove("pending");
-          } else {
-            singleTask.classList.remove("completed");
-            singleTask.classList.add("pending");
-          }
-        });
+        if (checkbox && checkbox.checked) {
+          singleTask.classList.add("completed");
+          singleTask.classList.remove("pending");
+        } else {
+          singleTask.classList.remove("completed");
+          singleTask.classList.add("pending");
+        }
       });
     });
     taskbox.value = "";
@@ -99,6 +115,7 @@ function addSelectedClass(button) {
 }
 
 function deleteTask(deleteItem) {
+  console.dir(deleteItem);
   deleteItem.parentElement.parentElement.remove();
 }
 function editTask(editItem) {
